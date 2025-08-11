@@ -12,8 +12,8 @@
     --card:#ffffff; 
     --muted:#6b6b6b; 
     --text:#000000;
-    --brand:#ff6f3d; 
-    --brand2:#ff914d; 
+    --brand:#000000; 
+    --brand2:#000000; 
     --ring:#e5e5e5; 
     --shadow:0 10px 30px rgba(0,0,0,.05);
   }
@@ -27,7 +27,6 @@
   }
   a{color:inherit;text-decoration:none}
 
-  /* Hero */
   .hero{
     padding:28px 16px 28px;
     background:#fff;
@@ -43,22 +42,21 @@
   .sub{color:var(--muted);font-size:14px}
   .cta{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
   .btn{
-    background:var(--brand);
+    background:#000;
     color:#fff;
     padding:12px 16px;
     border:none;
     border-radius:14px;
     font-weight:800;
     cursor:pointer;
-    box-shadow:0 10px 20px rgba(255,111,61,.25)
+    box-shadow:0 10px 20px rgba(0,0,0,.25)
   }
   .btn.alt{
-    background:#000;
-    color:#fff;
+    background:#fff;
+    color:#000;
     border:1px solid #000
   }
 
-  /* Category grid */
   .cats{margin:18px 0 8px;display:grid;gap:12px;grid-template-columns:1fr 1fr}
   @media(min-width:720px){.cats{grid-template-columns:repeat(4,1fr)}}
   .cat{
@@ -81,13 +79,11 @@
   .title{font-weight:900}
   .subtitle{font-size:12px;color:var(--muted)}
 
-  /* Animations */
   @keyframes wobble{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
   @keyframes flame{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
   .wobble{animation:wobble 1.8s ease-in-out infinite}
   .fl{animation:flame 1.6s ease-in-out infinite}
 
-  /* Sections / cards */
   main{padding:16px}
   section{max-width:980px;margin:26px auto}
   h2{font-size:20px;margin:0 0 12px;font-weight:900}
@@ -113,166 +109,97 @@
     border-radius:10px;
     font-weight:800
   }
-
-  /* Bottom bar */
-  .bottom{
-    position:sticky;
-    bottom:0;
-    background:#fff;
-    border-top:1px solid var(--ring);
-    padding:10px 16px
-  }
-  .bottom .wrap{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap}
-  .mini{
-    padding:10px 14px;
-    border-radius:12px;
-    border:1px solid var(--ring);
-    background:#fff;
-    color:#000
-  }
-  .to-top{
-    position:fixed;
-    bottom:16px;
-    right:16px;
-    background:#fff;
-    border:1px solid var(--ring);
-    border-radius:14px;
-    padding:10px 12px;
-    box-shadow:var(--shadow);
-    cursor:pointer
-  }
 </style>
 </head>
 <body>
-  <!-- HERO -->
-  <header class="hero">
-    <div class="wrap">
-      <div class="hero-top">
-        <!-- Logo -->
-        <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="48" fill="#000"/>
-            <g transform="translate(12,20)">
-              <rect x="10" y="32" width="64" height="6" rx="3" fill="#d9d9d9"/>
-              <rect x="8" y="8" width="44" height="12" rx="6" fill="#8b2d23"/>
-              <rect x="16" y="22" width="52" height="12" rx="6" fill="#a83a2a"/>
-              <rect x="18" y="36" width="40" height="12" rx="6" fill="#8b2d23"/>
-              <path d="M70 46c0 8-8 14-18 14s-18-6-18-14" fill="none" stroke="#ff6f3d" stroke-width="3"/>
-            </g>
-          </svg>
-        </div>
-        <div>
-          <h1>جگرکی نمونه</h1>
-          <div class="sub">برای مشاهده‌ی منو، یک دسته‌بندی را انتخاب کنید</div>
-          <div class="cta">
-            <a href="#dl-jegar" class="btn">مشاهده منو</a>
-            <a href="#contact" class="btn alt">تماس با ما</a>
-          </div>
-        </div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="48" fill="#000"/>
+        </svg>
       </div>
-
-      <!-- CATEGORY CARDS -->
-      <div class="cats">
-        <a class="cat" href="#dl-jegar">
-          <div class="icon wobble">
-            <svg width="42" height="42" viewBox="0 0 46 46">
-              <rect x="6" y="18" width="30" height="10" rx="5" fill="#a83a2a"/>
-              <rect x="10" y="8" width="26" height="10" rx="5" fill="#8b2d23"/>
-              <rect x="12" y="28" width="22" height="10" rx="5" fill="#8b2d23"/>
-              <rect x="4" y="22" width="38" height="2" rx="1" fill="#c9c9c9"/>
-            </svg>
-          </div>
-          <div class="title">دل و جگر</div>
-          <div class="subtitle">Liver & Heart</div>
-        </a>
-
-        <a class="cat" href="#kebab">
-          <div class="icon">
-            <svg class="fl" width="40" height="40" viewBox="0 0 20 24">
-              <path d="M10 0 C8 5 12 6 12 10 C12 13 10 14 10 17 C10 20 12 22 15 22 C18 22 20 20 20 17 C20 12 15 10 15 6 C15 3 17 2 17 0 C13 1 11 2 10 0Z" fill="#ff6f3d"/>
-            </svg>
-          </div>
-          <div class="title">کباب</div>
-          <div class="subtitle">Kebab</div>
-        </a>
-
-        <a class="cat" href="#starters">
-          <div class="icon wobble">
-            <svg width="44" height="44" viewBox="0 0 40 40">
-              <rect x="10" y="16" width="20" height="8" rx="4" fill="#90caf9"/>
-              <circle cx="16" cy="18" r="3" fill="#ffd166"/>
-              <circle cx="24" cy="18" r="3" fill="#ef476f"/>
-            </svg>
-          </div>
-          <div class="title">پیش‌غذا</div>
-          <div class="subtitle">Starters</div>
-        </a>
-
-        <a class="cat" href="#drinks">
-          <div class="icon">
-            <svg class="wobble" width="28" height="40" viewBox="0 0 24 40">
-              <rect x="8" y="0" width="8" height="8" rx="2" fill="#444"/>
-              <rect x="6" y="8" width="12" height="24" rx="4" fill="#00bcd4"/>
-              <rect x="6" y="32" width="12" height="4" rx="2" fill="#0097a7"/>
-            </svg>
-          </div>
-          <div class="title">نوشیدنی</div>
-          <div class="subtitle">Drinks</div>
-        </a>
+      <div>
+        <h1>جگرکی نمونه</h1>
+        <div class="sub">برای مشاهده‌ی منو، یک دسته‌بندی را انتخاب کنید</div>
+        <div class="cta">
+          <a href="#dl-jegar" class="btn">مشاهده منو</a>
+          <a href="#contact" class="btn alt">تماس با ما</a>
+        </div>
       </div>
     </div>
-  </header>
+    <div class="cats">
+      <a class="cat" href="#dl-jegar"><div class="icon wobble"></div><div class="title">دل و جگر</div></a>
+      <a class="cat" href="#kebab"><div class="icon"></div><div class="title">کباب</div></a>
+      <a class="cat" href="#starters"><div class="icon wobble"></div><div class="title">پیش‌غذا</div></a>
+      <a class="cat" href="#drinks"><div class="icon"></div><div class="title">نوشیدنی</div></a>
+    </div>
+  </div>
+</header>
 
-  <!-- MENU SECTIONS -->
-  <main>
-    <!-- 🍢 دل و جگر -->
-    <section id="dl-jegar" class="wrap">
-      <h2>🍢 دل و جگر</h2>
-      <div class="grid">
-        <article class="card"><div class="price">40,000</div><div class="name">جگر گوسفندی کبابی</div><div class="desc">25 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
-        <article class="card"><div class="price">45,000</div><div class="name">دل گوسفندی کبابی</div><div class="desc">25 گرمی — دورچین: ریحان، یک تکه نان لواش، سبزی، لیمو ترش تازه</div></article>
-        <article class="card"><div class="price">45,000</div><div class="name">خوش گوشت گوسفندی کبابی</div><div class="desc">40 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
-        <article class="card"><div class="price">45,000</div><div class="name">خوئک گوسفندی کبابی</div><div class="desc">40 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
-        <article class="card"><div class="price">50,000</div><div class="name">قلوه گوسفندی کبابی</div><div class="desc">25 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
-        <article class="card"><div class="price">35,000</div><div class="name">دنبه گوسفندی کبابی</div><div class="desc">30 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
-      </div>
-    </section>
+<main>
+  <section id="dl-jegar" class="wrap">
+    <h2>🍢 دل و جگر</h2>
+    <div class="grid">
+      <article class="card"><div class="price">40,000</div><div class="name">جگر گوسفندی</div><div class="desc">25 گرمی — دورچین: ریحان، نان لواش</div></article>
+      <article class="card"><div class="price">45,000</div><div class="name">دل گوسفندی</div><div class="desc">25 گرمی — ریحان، نان لواش، لیمو</div></article>
+      <article class="card"><div class="price">45,000</div><div class="name">خوش گوشت</div><div class="desc">40 گرمی — ریحان، نان لواش</div></article>
+      <article class="card"><div class="price">45,000</div><div class="name">خوئک گوسفندی</div><div class="desc">40 گرمی — ریحان، نان لواش</div></article>
+      <article class="card"><div class="price">50,000</div><div class="name">قلوه گوسفندی</div><div class="desc">25 گرمی — ریحان، نان لواش</div></article>
+      <article class="card"><div class="price">35,000</div><div class="name">دنبه گوسفندی</div><div class="desc">30 گرمی — ریحان، نان لواش</div></article>
+    </div>
+  </section>
 
-    <!-- 🥩 کباب -->
-    <section id="kebab" class="wrap">
-      <h2>🥩 کباب</h2>
-      <div class="grid">
-        <article class="card"><div class="price">100,000</div><div class="name">کباب کوبیده گوسفندی</div><div class="desc">100 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
-        <article class="card"><div class="price">85,000</div><div class="name">جوجه کباب سینه</div><div class="desc">120 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
-        <article class="card"><div class="price">80,000</div><div class="name">بال کبابی</div><div class="desc">4 تکه‌ای — دورچین: ریحان، یک تکه نان لواش</div></article>
-        <article class="card"><div class="price">80,000</div><div class="name">کتف کبابی</div><div class="desc">یک سیخ 4 تکه‌ای — دورچین: ریحان، یک تکه نان لواش</div></article>
-        <article class="card"><div class="price">130,000</div><div class="name">کباب لقمه 130 گرمی</div><div class="desc">130 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
-        <article class="card"><div class="price">60,000</div><div class="name">قارچ کبابی</div><div class="desc">5 عدد قارچ کبابی</div></article>
-        <article class="card"><div class="price">20,000</div><div class="name">فلفل کبابی</div><div class="desc">6 عدد فلفل کبابی</div></article>
-        <article class="card"><div class="price">25,000</div><div class="name">گوجه کبابی</div><div class="desc">4 عدد گوجه کبابی</div></article>
-      </div>
-    </section>
+  <section id="kebab" class="wrap">
+    <h2>🥩 کباب</h2>
+    <div class="grid">
+      <article class="card"><div class="price">100,000</div><div class="name">کباب کوبیده</div></article>
+      <article class="card"><div class="price">85,000</div><div class="name">جوجه کباب سینه</div></article>
+      <article class="card"><div class="price">80,000</div><div class="name">بال کبابی</div></article>
+      <article class="card"><div class="price">80,000</div><div class="name">کتف کبابی</div></article>
+      <article class="card"><div class="price">130,000</div><div class="name">کباب لقمه</div></article>
+      <article class="card"><div class="price">60,000</div><div class="name">قارچ کبابی</div></article>
+      <article class="card"><div class="price">20,000</div><div class="name">فلفل کبابی</div></article>
+      <article class="card"><div class="price">25,000</div><div class="name">گوجه کبابی</div></article>
+    </div>
+  </section>
 
-    <!-- 🥗 پیش‌غذا -->
-    <section id="starters" class="wrap">
-      <h2>🥗 پیش‌غذا</h2>
-      <div class="grid">
-        <article class="card"><div class="price">35,000</div><div class="name">ماست کوزه‌ای</div><div class="desc">شرکتی — یک نفره</div></article>
-        <article class="card"><div class="price">25,000</div><div class="name">زیتون پرورده</div><div class="desc">شرکتی — یک نفره</div></article>
-        <article class="card"><div class="price">20,000</div><div class="name">ترشی کلم</div><div class="desc">شرکتی — یک نفره</div></article>
-      </div>
-    </section>
+  <section id="starters" class="wrap">
+    <h2>🥗 پیش‌غذا</h2>
+    <div class="grid">
+      <article class="card"><div class="price">35,000</div><div class="name">ماست کوزه‌ای</div></article>
+      <article class="card"><div class="price">25,000</div><div class="name">زیتون پرورده</div></article>
+      <article class="card"><div class="price">20,000</div><div class="name">ترشی کلم</div></article>
+    </div>
+  </section>
 
-    <!-- 🥤 نوشیدنی -->
-    <section id="drinks" class="wrap">
-      <h2>🥤 نوشیدنی</h2>
-      <div class="grid">
-        <article class="card"><div class="price">40,000</div><div class="name">نوشابه قوطی</div><div class="desc">330 میلی‌لیتر</div></article>
-        <article class="card"><div class="price">40,000</div><div class="name">پپسی کولا</div><div class="desc">330 میلی‌لیتر</div></article>
-        <article class="card"><div class="price">40,000</div><div class="name">کوکا کولا</div><div class="desc">330 میلی‌لیتر</div></article>
-        <article class="card"><div class="price">40,000</div><div class="name">فانتا پرتقالی</div><div class="desc">330 میلی‌لیتر</div></article>
-        <article class="card"><div class="price">40,000</div><div class="name">اسپریت</div><div class="desc">330 میلی‌لیتر</div></article>
-        <article class="card"><div class="price">35,000</div><div class="name">ماءالشعیر شیشه‌ای هی‌دی</div><div class="desc">320 میلی‌لیتر — انگور / استوایی / هلو / لیمو</div></article>
-        <article class="card"><div class="price">35,000</div><div class="name">نوشابه شیشه‌ای</div><div class="desc">250 میلی‌لیتر — زرد / نارنجی</div></article>
-        <article class="card"><div class="price">25,000</div><div class="name">نوشابه پت</div><div class="desc">500 میلی‌لیتر</div></article>
-        <article class="card"><div class="price">
+  <section id="drinks" class="wrap">
+    <h2>🥤 نوشیدنی</h2>
+    <div class="grid">
+      <article class="card"><div class="price">40,000</div><div class="name">نوشابه قوطی</div></article>
+      <article class="card"><div class="price">40,000</div><div class="name">پپسی کولا</div></article>
+      <article class="card"><div class="price">40,000</div><div class="name">کوکا کولا</div></article>
+      <article class="card"><div class="price">40,000</div><div class="name">فانتا پرتقالی</div></article>
+      <article class="card"><div class="price">40,000</div><div class="name">اسپریت</div></article>
+      <article class="card"><div class="price">35,000</div><div class="name">ماءالشعیر هی‌دی</div></article>
+      <article class="card"><div class="price">35,000</div><div class="name">نوشابه شیشه‌ای</div><div class="desc">زرد و نارنجی</div></article>
+      <article class="card"><div class="price">35,000</div><div class="name">دوغ سنتی</div></article>
+      <article class="card"><div class="price">35,000</div><div class="name">دوغ آبعلی</div></article>
+      <article class="card"><div class="price">25,000</div><div class="name">نوشابه پت</div></article>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap">
+    <h2>📞 تماس</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="name">شماره تماس</div>
+        <div class="desc"><a href="tel:09123304975">0912-330-4975</a></div>
+      </article>
+    </div>
+  </section>
+</main>
+</body>
+</html>
