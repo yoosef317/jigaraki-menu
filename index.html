@@ -1,131 +1,283 @@
-
 <!DOCTYPE html>
-<html lang="fa">
-
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منو جگرکی</title>
-    <style>
-        body {
-            font-family: 'Vazir', sans-serif;
-            background-color: #fff;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        h1 {
-            font-size: 36px;
-            color: #000;
-            margin-bottom: 20px;
-        }
-        .menu-category {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            width: 100%;
-            padding: 20px;
-            max-width: 800px;
-        }
-        .menu-category div {
-            background-color: #f5f5f5;
-            margin: 10px;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 150px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .menu-category div:hover {
-            transform: scale(1.1);
-        }
-        .menu-category svg {
-            width: 50px;
-            height: 50px;
-            fill: #ff5722;
-            margin-bottom: 10px;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            padding: 15px;
-            background-color: #000;
-            color: #fff;
-            align-items: center;
-            box-sizing: border-box;
-        }
-        .logo {
-            width: 50px;
-            height: 50px;
-        }
-        .contact-info {
-            font-size: 16px;
-        }
-        .cta-button {
-            background-color: #ff5722;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: background-color 0.3s ease;
-        }
-        .cta-button:hover {
-            background-color: #f44336;
-        }
-        .footer {
-            margin-top: 20px;
-            font-size: 14px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>منوی جگرکی نمونه</title>
+<meta name="theme-color" content="#000000">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; 
+    --card:#ffffff; 
+    --muted:#6b6b6b; 
+    --text:#000000;
+    --brand:#ff6f3d; 
+    --brand2:#ff914d; 
+    --ring:#e5e5e5; 
+    --shadow:0 10px 30px rgba(0,0,0,.05);
+  }
+  *{box-sizing:border-box}
+  html,body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family: 'Vazirmatn', sans-serif;
+    line-height:1.75
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* Hero */
+  .hero{
+    padding:28px 16px 28px;
+    background:#fff;
+    border-bottom-left-radius:28px;
+    border-bottom-right-radius:28px;
+    box-shadow:var(--shadow)
+  }
+  .wrap{max-width:980px;margin:0 auto}
+  .hero-top{display:flex;align-items:center;gap:12px}
+  .logo{width:72px;height:72px;border-radius:18px;overflow:hidden;border:1px solid var(--ring);box-shadow:0 6px 20px rgba(0,0,0,.05);display:grid;place-items:center;background:#fff}
+  .logo svg{width:100%;height:100%}
+  h1{margin:0;font-size:24px;font-weight:900}
+  .sub{color:var(--muted);font-size:14px}
+  .cta{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+  .btn{
+    background:var(--brand);
+    color:#fff;
+    padding:12px 16px;
+    border:none;
+    border-radius:14px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 10px 20px rgba(255,111,61,.25)
+  }
+  .btn.alt{
+    background:#000;
+    color:#fff;
+    border:1px solid #000
+  }
+
+  /* Category grid */
+  .cats{margin:18px 0 8px;display:grid;gap:12px;grid-template-columns:1fr 1fr}
+  @media(min-width:720px){.cats{grid-template-columns:repeat(4,1fr)}}
+  .cat{
+    background:var(--card);
+    border:1px solid var(--ring);
+    border-radius:22px;
+    padding:14px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:.2s
+  }
+  .cat:hover{transform:translateY(-3px)}
+  .icon{
+    width:64px;height:64px;border-radius:18px;
+    margin:0 auto 8px;
+    background:#f5f5f5;
+    display:grid;place-items:center;
+    position:relative;overflow:hidden
+  }
+  .title{font-weight:900}
+  .subtitle{font-size:12px;color:var(--muted)}
+
+  /* Animations */
+  @keyframes wobble{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  @keyframes flame{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+  .wobble{animation:wobble 1.8s ease-in-out infinite}
+  .fl{animation:flame 1.6s ease-in-out infinite}
+
+  /* Sections / cards */
+  main{padding:16px}
+  section{max-width:980px;margin:26px auto}
+  h2{font-size:20px;margin:0 0 12px;font-weight:900}
+  .grid{display:grid;gap:10px;grid-template-columns:1fr}
+  @media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+  .card{
+    background:var(--card);
+    border:1px solid var(--ring);
+    border-radius:18px;
+    padding:12px 14px;
+    position:relative;
+    box-shadow:var(--shadow)
+  }
+  .name{font-weight:800}
+  .desc{color:var(--muted);font-size:14px}
+  .price{
+    position:absolute;
+    left:12px;
+    top:12px;
+    background:linear-gradient(135deg,var(--brand),var(--brand2));
+    color:#fff;
+    padding:6px 10px;
+    border-radius:10px;
+    font-weight:800
+  }
+
+  /* Bottom bar */
+  .bottom{
+    position:sticky;
+    bottom:0;
+    background:#fff;
+    border-top:1px solid var(--ring);
+    padding:10px 16px
+  }
+  .bottom .wrap{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap}
+  .mini{
+    padding:10px 14px;
+    border-radius:12px;
+    border:1px solid var(--ring);
+    background:#fff;
+    color:#000
+  }
+  .to-top{
+    position:fixed;
+    bottom:16px;
+    right:16px;
+    background:#fff;
+    border:1px solid var(--ring);
+    border-radius:14px;
+    padding:10px 12px;
+    box-shadow:var(--shadow);
+    cursor:pointer
+  }
+</style>
 </head>
-
 <body>
-    <header class="header">
-        <img src="logo.png" alt="Logo" class="logo">
-        <div class="contact-info">
-            <p>تماس با ما: 09123304975</p>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <!-- Logo -->
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="48" fill="#000"/>
+            <g transform="translate(12,20)">
+              <rect x="10" y="32" width="64" height="6" rx="3" fill="#d9d9d9"/>
+              <rect x="8" y="8" width="44" height="12" rx="6" fill="#8b2d23"/>
+              <rect x="16" y="22" width="52" height="12" rx="6" fill="#a83a2a"/>
+              <rect x="18" y="36" width="40" height="12" rx="6" fill="#8b2d23"/>
+              <path d="M70 46c0 8-8 14-18 14s-18-6-18-14" fill="none" stroke="#ff6f3d" stroke-width="3"/>
+            </g>
+          </svg>
         </div>
-    </header>
+        <div>
+          <h1>جگرکی نمونه</h1>
+          <div class="sub">برای مشاهده‌ی منو، یک دسته‌بندی را انتخاب کنید</div>
+          <div class="cta">
+            <a href="#dl-jegar" class="btn">مشاهده منو</a>
+            <a href="#contact" class="btn alt">تماس با ما</a>
+          </div>
+        </div>
+      </div>
 
-    <h1>جگرکی منو</h1>
+      <!-- CATEGORY CARDS -->
+      <div class="cats">
+        <a class="cat" href="#dl-jegar">
+          <div class="icon wobble">
+            <svg width="42" height="42" viewBox="0 0 46 46">
+              <rect x="6" y="18" width="30" height="10" rx="5" fill="#a83a2a"/>
+              <rect x="10" y="8" width="26" height="10" rx="5" fill="#8b2d23"/>
+              <rect x="12" y="28" width="22" height="10" rx="5" fill="#8b2d23"/>
+              <rect x="4" y="22" width="38" height="2" rx="1" fill="#c9c9c9"/>
+            </svg>
+          </div>
+          <div class="title">دل و جگر</div>
+          <div class="subtitle">Liver & Heart</div>
+        </a>
 
-    <div class="menu-category">
-        <!-- Kebab Section -->
-        <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L9 5H7v1h2v7h3V6h2V5h-2zM5 7v1h3V7H5zm6 2h3V7h-3zM3 9v1h4v-1H3zm15 0v1h3V9h-3zm-6 6v1h3v-1h-3zm-3 0h-3v1h3v-1zm-6 0h3v1H3v-1z"/></svg>
-            <h3>کباب</h3>
-        </div>
-        <!-- Liver and Heart Section -->
-        <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s9-4 9-10c0-3-2-6-5-7 2-1 5-2 5-5-2-2-4-1-5 2C16 5 14 3 12 3S8 5 7 7C6 4 4 3 2 1c0 3 3 4 5 5-3 1-5 4-5 7 0 6 9 10 9 10z"/></svg>
-            <h3>دل و جگر</h3>
-        </div>
-        <!-- Drinks Section -->
-        <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 2v3h6V2h-6zm3 5c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0 5c-1.104 0-2-.896-2-2s.896-2 2-2 2 .896 2 2-.896 2-2 2zM8 6H6c-1.104 0-2 .896-2 2v10c0 1.104.896 2 2 2h12c1.104 0 2-.896 2-2V8c0-1.104-.896-2-2-2h-2V4c0-.553-.447-1-1-1H9c-.553 0-1 .447-1 1v2zM6 8h12v10H6V8z"/></svg>
-            <h3>نوشیدنی</h3>
-        </div>
-        <!-- Appetizers Section -->
-        <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L9 5H7v1h2v7h3V6h2V5h-2zM5 7v1h3V7H5zm6 2h3V7h-3zM3 9v1h4v-1H3zm15 0v1h3V9h-3zm-6 6v1h3v-1h-3zm-3 0h-3v1h3v-1zm-6 0h3v1H3v-1z"/></svg>
-            <h3>پیش‌غذا</h3>
-        </div>
+        <a class="cat" href="#kebab">
+          <div class="icon">
+            <svg class="fl" width="40" height="40" viewBox="0 0 20 24">
+              <path d="M10 0 C8 5 12 6 12 10 C12 13 10 14 10 17 C10 20 12 22 15 22 C18 22 20 20 20 17 C20 12 15 10 15 6 C15 3 17 2 17 0 C13 1 11 2 10 0Z" fill="#ff6f3d"/>
+            </svg>
+          </div>
+          <div class="title">کباب</div>
+          <div class="subtitle">Kebab</div>
+        </a>
+
+        <a class="cat" href="#starters">
+          <div class="icon wobble">
+            <svg width="44" height="44" viewBox="0 0 40 40">
+              <rect x="10" y="16" width="20" height="8" rx="4" fill="#90caf9"/>
+              <circle cx="16" cy="18" r="3" fill="#ffd166"/>
+              <circle cx="24" cy="18" r="3" fill="#ef476f"/>
+            </svg>
+          </div>
+          <div class="title">پیش‌غذا</div>
+          <div class="subtitle">Starters</div>
+        </a>
+
+        <a class="cat" href="#drinks">
+          <div class="icon">
+            <svg class="wobble" width="28" height="40" viewBox="0 0 24 40">
+              <rect x="8" y="0" width="8" height="8" rx="2" fill="#444"/>
+              <rect x="6" y="8" width="12" height="24" rx="4" fill="#00bcd4"/>
+              <rect x="6" y="32" width="12" height="4" rx="2" fill="#0097a7"/>
+            </svg>
+          </div>
+          <div class="title">نوشیدنی</div>
+          <div class="subtitle">Drinks</div>
+        </a>
+      </div>
     </div>
+  </header>
 
-    <button class="cta-button">شروع سفارش</button>
-    <footer class="footer">
-        <p>&copy; 2023 جگرکی. همه حقوق محفوظ است.</p>
-    </footer>
-</body>
+  <!-- MENU SECTIONS -->
+  <main>
+    <section id="dl-jegar" class="wrap">
+      <h2>🍢 دل و جگر</h2>
+      <div class="grid">
+        <article class="card"><div class="price">40,000</div><div class="name">جگر گوسفندی کبابی</div><div class="desc">25 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
+        <article class="card"><div class="price">45,000</div><div class="name">دل گوسفندی کبابی</div><div class="desc">25 گرمی — دورچین: ریحان، یک تکه نان لواش، سبزی، لیمو ترش تازه</div></article>
+        <article class="card"><div class="price">45,000</div><div class="name">خوش گوشت گوسفندی کبابی</div><div class="desc">40 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
+        <article class="card"><div class="price">45,000</div><div class="name">خوئک گوسفندی کبابی</div><div class="desc">40 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
+        <article class="card"><div class="price">50,000</div><div class="name">قلوه گوسفندی کبابی</div><div class="desc">25 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
+        <article class="card"><div class="price">35,000</div><div class="name">دنبه گوسفندی کبابی</div><div class="desc">30 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
+      </div>
+    </section>
 
-</html>
+    <section id="kebab" class="wrap">
+      <h2>🥩 کباب</h2>
+      <div class="grid">
+        <article class="card"><div class="price">100,000</div><div class="name">کباب کوبیده گوسفندی</div><div class="desc">100 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
+        <article class="card"><div class="price">85,000</div><div class="name">جوجه کباب سینه</div><div class="desc">120 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
+        <article class="card"><div class="price">80,000</div><div class="name">بال کبابی</div><div class="desc">4 تکه‌ای — دورچین: ریحان، یک تکه نان لواش</div></article>
+        <article class="card"><div class="price">80,000</div><div class="name">کتف کبابی</div><div class="desc">یک سیخ 4 تکه‌ای — دورچین: ریحان، یک تکه نان لواش</div></article>
+        <article class="card"><div class="price">130,000</div><div class="name">کباب لقمه 130 گرمی</div><div class="desc">130 گرمی — دورچین: ریحان، یک تکه نان لواش</div></article>
+        <article class="card"><div class="price">60,000</div><div class="name">قارچ کبابی</div><div class="desc">5 عدد قارچ کبابی</div></article>
+        <article class="card"><div class="price">20,000</div><div class="name">فلفل کبابی</div><div class="desc">6 عدد فلفل کبابی</div></article>
+        <article class="card"><div class="price">25,000</div><div class="name">گوجه کبابی</div><div class="desc">4 عدد گوجه کبابی</div></article>
+      </div>
+    </section>
+
+    <section id="starters" class="wrap">
+      <h2>🥗 پیش‌غذا</h2>
+      <div class="grid">
+        <article class="card"><div class="price">25,000</div><div class="name">ماست کوزه‌ای</div><div class="desc">شرکتی — یک نفره</div></article>
+        <article class="card"><div class="price">25,000</div><div class="name">زیتون پرورده</div><div class="desc">شرکتی — یک نفره</div></article>
+        <article class="card"><div class="price">20,000</div><div class="name">ترشی کلم</div><div class="desc">شرکتی — یک نفره</div></article>
+      </div>
+    </section>
+
+    <section id="drinks" class="wrap">
+      <h2>🥤 نوشیدنی</h2>
+      <div class="grid">
+        <article class="card"><div class="price">40,000</div><div class="name">نوشابه قوطی</div><div class="desc">330 میلی‌لیتر</div></article>
+        <article class="card"><div class="price">40,000</div><div class="name">پپسی کولا</div><div class="desc">330 میلی‌لیتر</div></article>
+        <article class="card"><div class="price">40,000</div><div class="name">کوکا کولا</div><div class="desc">330 میلی‌لیتر</div></article>
+        <article class="card"><div class="price">40,000</div><div class="name">فانتا پرتقالی</div><div class="desc">330 میلی‌لیتر</div></article>
+        <article class="card"><div class="price">40,000</div><div class="name">اسپریت</div><div class="desc">330 میلی‌لیتر</div></article>
+        <article class="card"><div class="price">35,000</div><div class="name">ماءالشعیر شیشه‌ای هی‌دی</div><div class="desc">320 میلی‌لیتر — انگور / استوایی / هلو / لیمو</div></article>
+        <article class="card"><div class="price">35,000</div><div class="name">نوشابه شیشه‌ای</div><div class="desc">250 میلی‌لیتر</div></article>
+      </div>
+    </section>
+
+    <section id="contact" class="wrap">
+      <h2>📞 تماس</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="name">شماره تماس</div>
+          <div class="desc"><a href="tel:09123304975">0912-330-4975</a></div>
+        </article>
+      </div>
